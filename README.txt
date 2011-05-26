@@ -1,4 +1,0 @@
-Mashin’ down the left shift
-Holdin’ down the right shift
-Gotta make my mind up
-Which shift can I take?
