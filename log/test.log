@@ -1,0 +1,8 @@
+  Processing by PressShiftController#index as HTML
+Rendered press_shift/index.html.erb within layouts/application (1.8ms)
+Completed 200 OK in 7ms (Views: 7.1ms | ActiveRecord: 0.0ms)
+  Processing by PressShiftController#pressed as HTML
+Completed 200 OK in 4ms (Views: 3.9ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/" for 127.0.0.1 at Mon May 30 11:52:20 -0500 2011

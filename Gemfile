@@ -7,6 +7,16 @@ gem 'rails', '3.0.7'
 
 gem 'sqlite3'
 
+gem 'redis'
+
+# rake fix
+gem 'rake', '~> 0.8.7'
+
+gem 'haml'
+
+# As suggested by Redis
+gem 'SystemTimer'
+
 # Use unicorn as the web server
 # gem 'unicorn'
 
