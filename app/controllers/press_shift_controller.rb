@@ -4,7 +4,9 @@ class PressShiftController < ApplicationController
   end
   
   def press
-    if params[:button] == "left"
+    if cookies[:pressed].present?
+      # DO NOTHING!!!
+    elsif params[:button] == "left"
       $redis.incr('left_count')
     elsif params[:button] == "right"
       $redis.incr('right_count')
