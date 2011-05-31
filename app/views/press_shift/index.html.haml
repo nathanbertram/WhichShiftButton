@@ -1,0 +1,14 @@
+%h1
+  Which Shift Button?
+
+- if @cookie
+  %p
+    Left Count:
+    = $redis.get('left_count')
+  %p
+    Right Count:
+    = $redis.get('right_count')
+    
+- else
+  = link_to "Left", press_path(:button => "left"), :method => :post
+  = link_to "Right", press_path(:button => "right"), :method => :post
