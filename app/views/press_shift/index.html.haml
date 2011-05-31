@@ -1,20 +1,67 @@
-%h1
-  Which Shift Button?
-
 - if @cookie
-  %p
-    Left Count:
-    = REDIS.get('left_count')
-  %p
-    Both Count:
-    = REDIS.get('both_count')
-  %p
-    Right Count:
-    = REDIS.get('right_count')
-    
+  :plain
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+      <script type="text/javascript">
+        google.load("visualization", "1", {packages:["corechart"]});
+        google.setOnLoadCallback(drawChart);
+        function drawChart() {
+          var data = new google.visualization.DataTable();
+          data.addColumn('string', 'Task');
+          data.addColumn('number', 'Hours per Day');
+          data.addRows(3);
+          data.setValue(0, 0, 'Left Shift');
+          data.setValue(0, 1, #{REDIS.get('left_count') || 0});
+          
+          data.setValue(1, 0, 'Both');
+          data.setValue(1, 1, #{REDIS.get('both_count') || 0});
+          
+          data.setValue(2, 0, 'Right Shift');
+          data.setValue(2, 1, #{REDIS.get('right_count') || 0});
+          
+          var chart = new google.visualization.PieChart(document.getElementById('science_chart'));
+          chart.draw(data, {width: 500, height: 425, backgroundColor: '#eeeeee', fontSize: 16, is3D: true, legend: 'bottom'});
+        }
+      </script>
+
+  %h1
+    Thanks for contributing to science!
+  
+  :plain
+    <a href="http://twitter.com/share" class="twitter-share-button left" data-count="horizontal" data-text="For Science: Which shift button do you use?">Tweet</a><script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
+  :plain
+    <div id="fb-root" class="left"></div><script src="http://connect.facebook.net/en_US/all.js#appId=175519085838808&amp;xfbml=1"></script><fb:like href="" send="true" width="350" show_faces="true" font=""></fb:like>
+  
+  #science_chart
+  
+  %p#lols
+    Mashin' down the left shift
+    %br
+    Holdin' down the right shift
+    %br
+    Gotta make my mind up
+    %br
+    Which shift can I take?
+  
+  %br
+  
+  :plain
+    <script type="text/javascript"><!--
+    google_ad_client = "ca-pub-6859335418235928";
+    /* Which Shift Button */
+    google_ad_slot = "2384266649";
+    google_ad_width = 468;
+    google_ad_height = 60;
+    //-->
+    </script>
+    <script type="text/javascript"
+    src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+    </script>
+  
+  %br
 - else
-  = link_to "Left", press_path(:button => "left"), :method => :post
-  |
-  = link_to "Both", press_path(:button => "both"), :method => :post
-  |
-  = link_to "Right", press_path(:button => "right"), :method => :post
+  %h1
+    Which shift button do you use?
+    
+  = link_to "Shift", press_path(:button => "left"), :method => :post, :id => 'shift_left', :rel => 'nofollow'
+  = link_to "I use both", press_path(:button => "both"), :method => :post, :id => 'shift_both', :rel => 'nofollow'
+  = link_to "Shift", press_path(:button => "right"), :method => :post, :id => 'shift_right', :rel => 'nofollow'
