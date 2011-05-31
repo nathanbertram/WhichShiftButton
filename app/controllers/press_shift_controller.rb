@@ -6,10 +6,12 @@ class PressShiftController < ApplicationController
   def press
     if cookies[:pressed].present?
       # DO NOTHING!!!
-    elsif params[:button] == "left"
-      $redis.incr('left_count')
-    elsif params[:button] == "right"
-      $redis.incr('right_count')
+    elsif params[:button] == 'left'
+      REDIS.incr('left_count')
+    elsif params[:button] == 'both'
+      REDIS.incr('both_count')
+    elsif params[:button] == 'right'
+      REDIS.incr('right_count')
     end
     cookies.permanent[:pressed] = params[:button]
     redirect_to root_path

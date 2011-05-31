@@ -4,11 +4,17 @@
 - if @cookie
   %p
     Left Count:
-    = $redis.get('left_count')
+    = REDIS.get('left_count')
+  %p
+    Both Count:
+    = REDIS.get('both_count')
   %p
     Right Count:
-    = $redis.get('right_count')
+    = REDIS.get('right_count')
     
 - else
   = link_to "Left", press_path(:button => "left"), :method => :post
+  |
+  = link_to "Both", press_path(:button => "both"), :method => :post
+  |
   = link_to "Right", press_path(:button => "right"), :method => :post
