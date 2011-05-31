@@ -59,9 +59,10 @@
   
   %br
 - else
-  %h1
-    Which shift button do you use?
+  #lol_topspace
+    %h1
+      Which shift button do you use?
     
-  = link_to "Shift", press_path(:button => "left"), :method => :post, :id => 'shift_left', :rel => 'nofollow'
-  = link_to "I use both", press_path(:button => "both"), :method => :post, :id => 'shift_both', :rel => 'nofollow'
-  = link_to "Shift", press_path(:button => "right"), :method => :post, :id => 'shift_right', :rel => 'nofollow'
+    = link_to "Left Shift", press_path(:button => "left"), :method => :post, :id => 'shift_left', :rel => 'nofollow'
+    = link_to "I use both", press_path(:button => "both"), :method => :post, :id => 'shift_both', :rel => 'nofollow'
+    = link_to "Right Shift", press_path(:button => "right"), :method => :post, :id => 'shift_right', :rel => 'nofollow'
