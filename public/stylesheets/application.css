@@ -99,3 +99,15 @@ p#lols {
   line-height: 2em;
 }
 
+a#just_science {
+  margin: 100px 0 0 0;
+  float: right;
+  color: red;
+  color: #fff;
+}
+
+a#just_science:hover {
+  color: #333;
+}
+
+
